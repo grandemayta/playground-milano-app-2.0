@@ -1,0 +1,44 @@
+{
+  "name": "playground-milano",
+  "version": "2.0.0",
+  "author": "Gabriel Mayta",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-i18n": "1.4.9",
+    "angular-local-storage": "0.2.6",
+    "angular-touch": "1.4.9",
+    "angular-translate": "2.9.2",
+    "angular-ui-router": "0.2.18",
+    "lodash": "4.5.1",
+    "oclazyload": "1.0.9",
+    "swiper": "3.0.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.5.0",
+    "cca": "^0.7.0",
+    "cordova": "^5.1.1",
+    "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.5.0",
+    "file-loader": "^0.8.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-cordova-config": "^0.1.3",
+    "grunt-cordovacli": "^0.7.1",
+    "grunt-exec": "^0.4.6",
+    "html-loader": "^0.2.3",
+    "ng-annotate-loader": "^0.1.0",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.9.0",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js --content-base project/public --hot --progress --color --port 2241 --inline"
+  }
+}

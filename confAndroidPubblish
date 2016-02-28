@@ -1,0 +1,18 @@
+#KEY STORE
+
+keytool -genkey -v -keystore playgroundmilano.keystore -alias playgroundmilano -keyalg RSA -keysize 2048 -validity 10000
+
+#SIGNED APK
+#AMD
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore playgroundmilano.keystore build_android/platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk playgroundmilano
+
+#X86
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore playgroundmilano.keystore build_android/platforms/android/build/outputs/apk/android-x86-release-unsigned.apk playgroundmilano
+
+#ZIP ALIGN APK
+
+#AMD
+/Users/grandemayta/.android-sdk/build-tools/22.0.1/zipalign -v 4 build_android/platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk  ./plagroundmilano_amd.apk
+
+#X86
+/Users/grandemayta/.android-sdk/build-tools/22.0.1/zipalign -v 4 build_android/platforms/android/build/outputs/apk/android-x86-release-unsigned.apk  ./plagroundmilano_x86.apk
