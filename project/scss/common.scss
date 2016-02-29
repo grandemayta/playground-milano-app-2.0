@@ -3,58 +3,58 @@
  * Created by Playground Milano
  *
  */
-
-@import '../scss/fontastic';
-@import '../scss/menu';
+@import "../scss/fontastic";
+@import "../scss/menu";
 /* VIEWS */
-@import '../scss/views/about';
-@import '../scss/views/access';
-@import '../scss/views/checkin';
-@import '../scss/views/faq';
-@import '../scss/views/modifica_profilo';
-@import '../scss/views/playground';
-@import '../scss/views/playgrounds';
-@import '../scss/views/privacy';
-@import '../scss/views/settings';
-@import '../scss/views/splashscreen';
-@import '../scss/views/friends';
+@import "../scss/views/about";
+@import "../scss/views/access";
+@import "../scss/views/checkin";
+@import "../scss/views/faq";
+@import "../scss/views/modifica_profilo";
+@import "../scss/views/playground";
+@import "../scss/views/playgrounds";
+@import "../scss/views/privacy";
+@import "../scss/views/settings";
+@import "../scss/views/splashscreen";
+@import "../scss/views/friends";
 /* WIDGETS */
-@import '../scss/widgets/accordion';
-@import '../scss/widgets/datepicker';
-@import '../scss/widgets/modal';
-@import '../scss/widgets/swiper';
-@import '../scss/widgets/tabs';
+@import "../scss/widgets/accordion";
+@import "../scss/widgets/datepicker";
+@import "../scss/widgets/modal";
+@import "../scss/widgets/swiper";
+@import "../scss/widgets/tabs";
+@import "widgets/spinner";
 
 /*FONTS*/
 @font-face {
-  font-family: 'robotobold';
-  src: url('../fonts/roboto_bold/Roboto-Bold-webfont.eot');
-  src: url('../fonts/roboto_bold/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/roboto_bold/Roboto-Bold-webfont.woff') format('woff'),
-  url('../fonts/roboto_bold/Roboto-Bold-webfont.ttf') format('truetype'),
-  url('../fonts/roboto_bold/Roboto-Bold-webfont.svg#robotobold') format('svg');
+  font-family: "robotobold";
+  src: url("../fonts/roboto_bold/Roboto-Bold-webfont.eot");
+  src: url("../fonts/roboto_bold/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/roboto_bold/Roboto-Bold-webfont.woff") format("woff"),
+  url("../fonts/roboto_bold/Roboto-Bold-webfont.ttf") format("truetype"),
+  url("../fonts/roboto_bold/Roboto-Bold-webfont.svg#robotobold") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'robotolight';
-  src: url('../fonts/roboto_light/Roboto-Light-webfont.eot');
-  src: url('../fonts/roboto_light/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/roboto_light/Roboto-Light-webfont.woff') format('woff'),
-  url('../fonts/roboto_light/Roboto-Light-webfont.ttf') format('truetype'),
-  url('../fonts/roboto_light/Roboto-Light-webfont.svg#robotolight') format('svg');
+  font-family: "robotolight";
+  src: url("../fonts/roboto_light/Roboto-Light-webfont.eot");
+  src: url("../fonts/roboto_light/Roboto-Light-webfont.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/roboto_light/Roboto-Light-webfont.woff") format("woff"),
+  url("../fonts/roboto_light/Roboto-Light-webfont.ttf") format("truetype"),
+  url("../fonts/roboto_light/Roboto-Light-webfont.svg#robotolight") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'robotothin';
-  src: url('../fonts/roboto_thin/Roboto-Thin-webfont.eot');
-  src: url('../fonts/roboto_thin/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/roboto_thin/Roboto-Thin-webfont.woff') format('woff'),
-  url('../fonts/roboto_thin/Roboto-Thin-webfont.ttf') format('truetype'),
-  url('../fonts/roboto_thin/Roboto-Thin-webfont.svg#robotothin') format('svg');
+  font-family: "robotothin";
+  src: url("../fonts/roboto_thin/Roboto-Thin-webfont.eot");
+  src: url("../fonts/roboto_thin/Roboto-Thin-webfont.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/roboto_thin/Roboto-Thin-webfont.woff") format("woff"),
+  url("../fonts/roboto_thin/Roboto-Thin-webfont.ttf") format("truetype"),
+  url("../fonts/roboto_thin/Roboto-Thin-webfont.svg#robotothin") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -76,7 +76,7 @@
   border: none;
   font-size: 14px;
   box-sizing: border-box;
-  font-family: 'robotolight';
+  font-family: "robotolight";
   font-weight: normal;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -95,7 +95,7 @@ body {
 }
 
 .background-social {
-  background-image: url('../images/login-social-002.jpg');
+  background-image: url("../images/login-social-002.jpg");
 }
 
 .logo-center {
@@ -110,7 +110,7 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
   background-repeat: no-repeat;
   background-position: 19px;
-  background-image: url('../images/logo.png');
+  background-image: url("../images/logo.png");
   background-size: 150px;
   border-radius: 50%;
 }
@@ -206,7 +206,7 @@ header {
   color: #fff;
   line-height: 50px;
   text-transform: uppercase;
-  font-family: 'robotothin';
+  font-family: "robotothin";
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -346,7 +346,7 @@ back-button {
   border-radius: 3px;
 }
 
-input[type='submit']:disabled {
+input[type="submit"]:disabled {
   opacity: 0.4;
 }
 
@@ -530,13 +530,13 @@ button:disabled {
 }
 
 .no-image {
-  background-image: url('../images/user-default.gif');
+  background-image: url("../images/user-default.gif");
 }
 
 .no-background-image {
   background-color: #fff !important;
   background-size: contain !important;
-  background-image: url('../images/no-photo.jpg') !important;
+  background-image: url("../images/no-photo.jpg") !important;
 }
 
 .no-border-bottom {
@@ -553,31 +553,31 @@ button:disabled {
 
 .ttl-main-title {
   font-size: 22px;
-  font-family: 'robotobold';
+  font-family: "robotobold";
 }
 
 .ttl-secondary-title {
   font-size: 18px;
-  font-family: 'robotobold';
+  font-family: "robotobold";
 }
 
 .ttl-alternative-title {
   font-size: 16px;
-  font-family: 'robotobold';
+  font-family: "robotobold";
 }
 
 .ttl-secondary-center-title {
   font-size: 16px;
   text-align: center;
-  font-family: 'robotobold';
+  font-family: "robotobold";
 }
 
 .lbl-main-title {
   font-size: 18px;
-  font-family: 'robotothin';
+  font-family: "robotothin";
 }
 
-/* TEXT JUSTIFY AND DON'T JUSTIFY */
+/* TEXT JUSTIFY AND DON"T JUSTIFY */
 .txt-justify, .txt-non-justify {
   clear: left;
   float: left;

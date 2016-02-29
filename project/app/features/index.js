@@ -6,13 +6,16 @@
 
 "use strict";
 
-require("./menu");
-require("./splashscreen");
-require("./access-social");
-require("./playgrounds-list");
+import "./header-without-menu";
+import "./header-menu";
+import "./splashscreen";
+import "./access-social";
+import "./playgrounds-list";
+
 
 angular.module("features", [
-    "menu",
+    "header-without-menu",
+    "header-menu",
     "splashscreen",
     "access-social",
     "playgrounds-list"

@@ -41,7 +41,6 @@ module.exports = {
             "swiper": "swiper/dist/js/swiper.js",
             "lodash": "lodash/lodash.js",
             "js-marker-clusterer": "lib/js-marker-clusterer.js",
-            "spin": "lib/spin.js",
             "lib": "lib",
             "scss": "scss"
         }
@@ -50,7 +49,6 @@ module.exports = {
         new ExtractTextPlugin("output.css"),
         new Webpack.ProvidePlugin({
             _: "lodash",
-            Spinner: "spin",
             Swiper: "swiper"
         })
     ]

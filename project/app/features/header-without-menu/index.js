@@ -6,19 +6,19 @@
 
 "use strict";
 
-angular.module("menu", []).config(MenuConfig);
-MenuConfig.$inject = ["$stateProvider"];
+angular.module("header-without-menu", []).config(HeaderWithoutMenuConfig);
+HeaderWithoutMenuConfig.$inject = ["$stateProvider"];
 
 
-function MenuConfig($stateProvider) {
+function HeaderWithoutMenuConfig($stateProvider) {
 
     $stateProvider.state("headerwithoutmenu", {
         abstract: true,
-        controller: "MenuController",
+        controller: "HeaderWithoutMenuController",
         templateProvider: ["$q", function ($q) {
             var deferred = $q.defer();
             require.ensure([], function (require) {
-                    var template = require("./_views/menu.html");
+                    var template = require("./_views/headerwithoutmenu.html");
                     deferred.resolve(template);
                 }
             );
@@ -28,8 +28,8 @@ function MenuConfig($stateProvider) {
             load: ["$q", "$ocLazyLoad", function ($q, $ocLazyLoad) {
                 var deferred = $q.defer();
                 require.ensure([], function (require) {
-                        var module = require("./_controller/MenuController");
-                        $ocLazyLoad.load({name: "menu.controller"});
+                        var module = require("./_controller/HeaderWithoutMenuController");
+                        $ocLazyLoad.load({name: "header-without-menu.controller"});
                         deferred.resolve(module);
                     }
                 );

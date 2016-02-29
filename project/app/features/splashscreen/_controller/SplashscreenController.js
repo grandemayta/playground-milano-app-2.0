@@ -7,10 +7,10 @@
 "use strict";
 
 angular.module("splashscreen.controller", []).controller("SplashscreenController", SplashscreenController);
-SplashscreenController.$inject = ["$rootScope", "$scope", "$state", "$interval"];
+SplashscreenController.$inject = ["$scope", "$state", "$interval"];
 
 
-function SplashscreenController($rootScope, $scope, $state, $interval) {
+function SplashscreenController($scope, $state, $interval) {
 
     $scope.count = 0;
 

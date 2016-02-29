@@ -6,10 +6,10 @@
 
 "use strict";
 
-require("./constants");
-require("./configs");
-require("./services");
-require("./directives");
+import "./constants";
+import "./configs";
+import "./services";
+import "./directives";
 
 
 angular.module("app.core", [

@@ -30,7 +30,7 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
             && $rootScope.currentPage !== "generatecode"
             && $rootScope.currentPage !== "resetpassword"
             && $rootScope.currentPage !== "playgrounds.map"
-            && $rootScope.currentPage !== "playgrounds.list"
+            && $rootScope.currentPage !== "playgroundslist"
             && $rootScope.currentPage !== "playground"
             && $rootScope.currentPage !== "about"
             && $rootScope.currentPage !== "privacy"

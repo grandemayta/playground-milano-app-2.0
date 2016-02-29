@@ -6,7 +6,7 @@
 
 "use strict";
 
-require('./url-enviroments');
+import "./url-enviroments";
 
 
 angular.module("constants", [

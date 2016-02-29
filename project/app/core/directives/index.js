@@ -6,13 +6,13 @@
 
 "use strict";
 
-require("./BackButtonDirective");
-require("./DefineAreaDirective");
-require("./ModalDirective");
-require("./GoogleMapDirective");
-require("./TabsDirective");
-require("./SpinnerDirective");
-require("./LoadTemplatesDirectives");
+import "./BackButtonDirective";
+import "./DefineAreaDirective";
+import "./ModalDirective";
+import "./GoogleMapDirective";
+import "./TabsDirective";
+import "./SpinnerDirective";
+import "./LoadTemplatesDirectives";
 
 
 angular.module("directives", [

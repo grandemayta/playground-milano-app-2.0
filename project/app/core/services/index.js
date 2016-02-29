@@ -6,10 +6,10 @@
 
 "use strict";
 
-require('./RestService');
-require('./GoogleMapInitService');
-require('./OAuthService');
-require('./DialogsService');
+import "./RestService";
+import "./GoogleMapInitService";
+import "./OAuthService";
+import "./DialogsService";
 
 
 angular.module("services", [

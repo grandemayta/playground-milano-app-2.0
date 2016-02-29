@@ -6,11 +6,11 @@
 
 "use strict";
 
-angular.module("menu.controller", []).controller("MenuController", MenuController);
-MenuController.$inject = ["$rootScope", "$scope", "$state", "localStorageService", "RestService"];
+angular.module("header-without-menu.controller", []).controller("HeaderWithoutMenuController", HeaderWithoutMenuController);
+HeaderWithoutMenuController.$inject = ["$rootScope", "$scope", "$state", "localStorageService", "RestService"];
 
 
-function MenuController($rootScope, $scope, $state, localStorageService, RestService) {
+function HeaderWithoutMenuController($rootScope, $scope, $state, localStorageService, RestService) {
 
     $rootScope.toggleMenu = false;
 

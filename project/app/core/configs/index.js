@@ -6,9 +6,9 @@
 
 "use strict";
 
-require('./state-change');
-require('./interceptor');
-require('./language');
+import "./state-change";
+import "./interceptor";
+import "./language";
 
 
 angular.module("configs", [

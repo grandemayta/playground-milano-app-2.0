@@ -13,10 +13,10 @@ PlaygroundsListConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 function PlaygroundsListConfig($stateProvider) {
 
     $stateProvider
-        .state("list", {
-            parent: 'playgrounds',
+        .state("playgroundslist", {
+            parent: 'headermenu',
             url: '/lista-dei-campi',
-            controller: "PlaygroundListController",
+            controller: "PlaygroundsListController",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();
                 require.ensure([], function (require) {
