@@ -29,6 +29,7 @@
     "grunt-cordovacli": "^0.7.1",
     "grunt-exec": "^0.4.6",
     "html-loader": "^0.2.3",
+    "json-loader": "^0.5.4",
     "ng-annotate-loader": "^0.1.0",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "node-sass": "^3.4.2",

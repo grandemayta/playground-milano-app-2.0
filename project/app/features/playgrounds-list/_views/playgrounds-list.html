@@ -1,6 +1,6 @@
 <div define-area type-area="withHeader" class="withHeader scrollable-area background-alternative">
     <div class="spacer-10"></div>
-    <div ng-repeat="playground in playgrounds" class="box-playgrounds">
+    <div ng-repeat="playground in playgrounds track by playground.id" class="box-playgrounds">
         <div style="background-image: url('{{playground.image}}');"
              ng-class="{'no-background-image':!playground.image}"
              class="box-playground-image">

@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "label": "Entra con i Social",
+    "state": "social",
+    "require_auth": false,
+    "show_after_auth": false
+  },
+  {
+    "id": 2,
+    "label": "Registrati",
+    "state": "registration",
+    "require_auth": false,
+    "show_after_auth": false
+  },
+  {
+    "id": 3,
+    "label": "Entra",
+    "state": "login",
+    "require_auth": false,
+    "show_after_auth": false
+  },
+  {
+    "id": 4,
+    "label": "Mappa dei Campi",
+    "state": "map",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 5,
+    "label": "Lista dei Campi",
+    "state": "list",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 6,
+    "label": "Amici",
+    "state": "friends",
+    "require_auth": true,
+    "show_after_auth": true
+  },
+  {
+    "id": 7,
+    "label": "Preferiti",
+    "state": "favourites",
+    "require_auth": true,
+    "show_after_auth": true
+  },
+  {
+    "id": 8,
+    "label": "Su di noi",
+    "state": "about",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 9,
+    "label": "Domande frequenti",
+    "state": "faq",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 10,
+    "label": "Privacy",
+    "state": "privacy",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 11,
+    "label": "Crediti",
+    "state": "credits",
+    "require_auth": false,
+    "show_after_auth": true
+  },
+  {
+    "id": 12,
+    "label": "Esci",
+    "state": "logout",
+    "require_auth": true,
+    "show_after_auth": true
+  }
+]

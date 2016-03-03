@@ -12,6 +12,7 @@ import "./ModalDirective";
 import "./GoogleMapDirective";
 import "./TabsDirective";
 import "./SpinnerDirective";
+import "./OverlayDirective";
 import "./LoadTemplatesDirectives";
 
 
@@ -22,5 +23,6 @@ angular.module("directives", [
     "directives.load-template",
     "directives.modal",
     "directives.spinner",
+    "directives.overlay",
     "directives.tabs"
 ]);

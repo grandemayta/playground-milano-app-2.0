@@ -29,8 +29,13 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(jpg|png|gif|eot|woff|ttf|svg|json)$/,
+                test: /\.(jpg|png|gif|eot|woff|ttf|svg)$/,
                 loader: "file-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                loader: "json-loader",
                 exclude: /node_modules/
             }
         ]
