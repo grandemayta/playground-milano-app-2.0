@@ -12,6 +12,8 @@ import "./splashscreen";
 import "./access-social";
 import "./login";
 import "./registration";
+import "./generate-code";
+import "./reset-password";
 import "./playgrounds-list";
 
 
@@ -22,5 +24,7 @@ angular.module("features", [
     "access-social",
     "login",
     "registration",
+    "generate-code",
+    "reset-password",
     "playgrounds-list"
 ]);
