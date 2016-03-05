@@ -10,6 +10,8 @@ import "./header-without-menu";
 import "./header-menu";
 import "./splashscreen";
 import "./access-social";
+import "./login";
+import "./registration";
 import "./playgrounds-list";
 
 
@@ -18,5 +20,7 @@ angular.module("features", [
     "header-menu",
     "splashscreen",
     "access-social",
+    "login",
+    "registration",
     "playgrounds-list"
 ]);
