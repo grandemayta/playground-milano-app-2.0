@@ -23,14 +23,14 @@
   {
     "id": 4,
     "label": "Mappa dei Campi",
-    "state": "map",
+    "state": "playgroundsmap",
     "require_auth": false,
     "show_after_auth": true
   },
   {
     "id": 5,
     "label": "Lista dei Campi",
-    "state": "list",
+    "state": "playgroundtabs",
     "require_auth": false,
     "show_after_auth": true
   },

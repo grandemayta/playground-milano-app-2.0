@@ -6,6 +6,8 @@
 
 "use strict";
 
+import "js-marker-clusterer";
+
 angular.module("directives.google-map", []).directive("googleMap", GoogleMap);
 GoogleMap.$inject = ['$rootScope', 'GoogleMapInit', '$timeout'];
 
@@ -21,7 +23,7 @@ function GoogleMap($rootScope, GoogleMapInit, $timeout) {
         <div ng-click="enableGeoLocalization()" class="search-geolocalization">\
             <i class="fa icon-location"></i>\
         </div>\
-        <div ui-sref="playgrounds.list" class="search-places">\
+        <div ui-sref="playgroundslist" class="search-places">\
             <i class="fa icon-keypad-2"></i>\
         </div>',
         link: function (scope, element) {

@@ -15,6 +15,8 @@ import "./registration";
 import "./generate-code";
 import "./reset-password";
 import "./playgrounds-list";
+import "./playgrounds-map";
+import "./playground-tabs";
 
 
 angular.module("features", [
@@ -26,5 +28,7 @@ angular.module("features", [
     "registration",
     "generate-code",
     "reset-password",
-    "playgrounds-list"
+    "playgrounds-list",
+    "playgrounds-map",
+    "playground-tabs"
 ]);
