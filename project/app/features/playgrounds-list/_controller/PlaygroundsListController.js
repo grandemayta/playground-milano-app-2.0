@@ -19,11 +19,11 @@ function PlaygroundsListController($rootScope, $scope, $state, RestService) {
     });
 
     $scope.detail = function () {
-        $state.go('playground', {id: $rootScope.modalData.id});
+        $state.go('playground.details', {id: $rootScope.modalData.id});
     };
 
     $scope.goToPlayground = function (id) {
-        $state.go('playground', {id: id});
+        $state.go('playground.details', {id: id});
     };
 
     $scope.goToCheckin = function (id) {

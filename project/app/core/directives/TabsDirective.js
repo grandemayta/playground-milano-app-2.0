@@ -7,10 +7,10 @@
 "use strict";
 
 angular.module("directives.tabs", []).directive("tabs", Tabs);
-Tabs.$inject = ['$rootScope', '$timeout'];
+Tabs.$inject = ['$rootScope', '$timeout', '$state'];
 
 
-function Tabs($rootScope, $timeout) {
+function Tabs($rootScope, $timeout, $state) {
     return {
         restrict: 'E',
         link: function (scope, element) {
@@ -25,7 +25,19 @@ function Tabs($rootScope, $timeout) {
                     allowSwipeToPrev: false,
                     onSlideChangeStart: function (e) {
                         $timeout(function () {
+                            console.log($rootScope.currentPage);
                             $rootScope.currentTabPage = $rootScope.currentPage + '_' + e.activeIndex;
+                            switch (e.activeIndex) {
+                                case 0:
+                                    $state.go("playground.details", {id: "558710e7627992030032a02f"});
+                                    break;
+                                case 1:
+                                    $state.go("playground.checkins", {id: "558710e7627992030032a02f"});
+                                    break;
+                                case 2:
+                                    $state.go("playground.comments", {id: "558710e7627992030032a02f"});
+                                    break;
+                            }
                         }, 200);
                         document.querySelectorAll('#tabs-navigation li i')[tabPrev].classList.remove('active-tab');
                         document.querySelectorAll('#tabs-navigation li i')[e.activeIndex].classList.add('active-tab');

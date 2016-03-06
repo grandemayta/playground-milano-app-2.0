@@ -30,7 +30,7 @@
   {
     "id": 5,
     "label": "Lista dei Campi",
-    "state": "playgroundtabs",
+    "state": "playgroundslist",
     "require_auth": false,
     "show_after_auth": true
   },

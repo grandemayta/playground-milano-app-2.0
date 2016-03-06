@@ -17,6 +17,9 @@ import "./reset-password";
 import "./playgrounds-list";
 import "./playgrounds-map";
 import "./playground-tabs";
+import "./playground-tabs-details";
+import "./playground-tabs-checkins";
+import "./playground-comments";
 
 
 angular.module("features", [
@@ -30,5 +33,8 @@ angular.module("features", [
     "reset-password",
     "playgrounds-list",
     "playgrounds-map",
-    "playground-tabs"
+    "playground-tabs",
+    "playground-tabs-details",
+    "playground-tabs-checkins",
+    "playground-comments"
 ]);

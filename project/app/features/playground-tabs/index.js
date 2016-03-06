@@ -13,9 +13,9 @@ PlaygroundTabsConfig.$inject = ["$stateProvider"];
 function PlaygroundTabsConfig($stateProvider) {
 
     $stateProvider
-        .state("playgroundtabs", {
-            parent: 'headermenu',
-            url: '/dettaglio-del-campo',
+        .state("playground", {
+            abstract: true,
+            parent: "headermenu",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();
                 require.ensure([], function (require) {
