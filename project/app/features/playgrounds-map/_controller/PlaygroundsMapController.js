@@ -7,17 +7,24 @@
 "use strict";
 
 angular.module("playgrounds-map.controller", []).controller("PlaygroundsMapController", PlaygroundsMapController);
-PlaygroundsMapController.$inject = ["$rootScope", "$scope", "$timeout", "RestService"];
+PlaygroundsMapController.$inject = ["$rootScope", "playgroundsResponse", "$scope", "$state"];
 
 
-function PlaygroundsMapController($rootScope, $scope, $timeout, RestService) {
+function PlaygroundsMapController($rootScope, playgroundsResponse, $scope, $state) {
 
     $rootScope.pageTitle = 'Mappa dei campi';
+    $scope.playgrounds = playgroundsResponse.data;
 
-    RestService.get('playgrounds').then(function (response) {
-        $timeout(function () {
-            $scope.playgrounds = response.data;
-        }, 200);
+    $scope.$watch('placeSelected', function (placeSelected) {
+        if (!_.isEmpty(placeSelected)) {
+            $rootScope.toggleModal = true;
+            $scope.playgroundId = placeSelected.id;
+            $scope.playgroundName = placeSelected.title;
+        }
     });
+
+    $scope.handleNavigationMap = function () {
+        $state.go("playground.details", {id: $scope.playgroundId});
+    };
 
 }

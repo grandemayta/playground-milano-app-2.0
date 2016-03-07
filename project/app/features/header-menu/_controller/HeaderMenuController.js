@@ -16,13 +16,13 @@ function HeaderMenuController($rootScope, $scope, $state, localStorageService, R
     $rootScope.toggleMenu = false;
     $scope.menuData = menuData;
 
-    $scope.changeMenuStatus = function () {
+    $scope.handleMenuStatus = function () {
         $rootScope.toggleMenu = !$rootScope.toggleMenu;
     };
 
-    $scope.menuChangePage = function ($event, page) {
+    $scope.handleNavigation = function ($event, page) {
         $event.preventDefault();
-        console.log(page);
+        $rootScope.toggleMenu = false;
         $state.go(page);
     };
 

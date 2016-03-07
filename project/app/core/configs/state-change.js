@@ -17,10 +17,13 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
         $rootScope.IS_AUTH = $rootScope.userData || false;
         $rootScope.env = localStorageService.get("ENV") || "PROD";
         $rootScope.currentPage = toState.name;
-        $rootScope.toggleMenu = $rootScope.toggleSpinner = $rootScope.toggleModal = false;
         $rootScope.toggleBackButton = toState.backbutton ? true : false;
         $rootScope.language = "it";
         $rootScope.DEVICE = COMPONENTS_VALUES;
+
+        $rootScope.toggleModal = false;
+        $rootScope.toggleSpinner = false;
+        $rootScope.toggleMenu = false;
 
         if (!$rootScope.IS_AUTH
             && $rootScope.currentPage !== "splashscreen"

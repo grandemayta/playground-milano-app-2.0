@@ -16,7 +16,8 @@ function GoogleMap($rootScope, GoogleMapInit, $timeout) {
     return {
         restrict: 'E',
         scope: {
-            playgrounds: "="
+            playgrounds: "=",
+            placeSelected: "=ngModel"
         },
         template: '\
         <div id="google-map"></div>\
@@ -32,60 +33,43 @@ function GoogleMap($rootScope, GoogleMapInit, $timeout) {
 
                 var markers = [];
 
-                $timeout(function () {
+                GoogleMapInit.then(function () {
+                    var places = scope.playgrounds;
+                    var mapOptions = {zoom: 12, center: new google.maps.LatLng(45.46795, 9.18292), disableDefaultUI: true};
+                    var map = new google.maps.Map(document.querySelector('#google-map'), mapOptions);
 
-                    scope.$watch('playgrounds', function (playgrounds) {
-                        if (playgrounds !== undefined) {
+                    loadPlaces(map, places);
 
-                            GoogleMapInit.then(function () {
-                                var places = playgrounds;
+                    var markerCluster = new MarkerClusterer(map, markers, {gridSize: 40});
 
-                                var mapOptions = {
-                                    zoom: 12,
-                                    center: new google.maps.LatLng(45.46795, 9.18292),
-                                    disableDefaultUI: true
-                                };
-
-                                var map = new google.maps.Map(document.querySelector('#google-map'), mapOptions);
-
-                                loadPlaces(map, places);
-                                var markerCluster = new MarkerClusterer(map, markers, {gridSize: 40});
-
-                                scope.enableGeoLocalization = function () {
-                                    if (navigator && navigator.geolocation) {
-                                        $rootScope.toggleSpinner = true;
-                                        navigator.geolocation.getCurrentPosition(
-                                            function (response) {
-                                                console.log(response);
-                                                var currentPosition = {
-                                                    position: new google.maps.LatLng(response.coords.latitude, response.coords.longitude),
-                                                    title: 'Tu sei qui',
-                                                    icon: require('../../../images/current-position.png'),
-                                                    id: 1111
-                                                };
-                                                mapOptions.center = new google.maps.LatLng(response.coords.latitude, response.coords.longitude);
-                                                map = new google.maps.Map(document.querySelector('#google-map'), mapOptions);
-                                                $timeout(function () {
-                                                    loadPlaces(map, places, currentPosition);
-                                                    $rootScope.toggleSpinner = false;
-                                                }, 200);
-                                            },
-                                            function (error) {
-                                                //Gestire errore
-                                                $timeout(function () {
-                                                    $rootScope.toggleSpinner = false;
-                                                }, 200);
-                                            }
-                                        );
-                                    }
-                                };
-
-                            });
-
+                    scope.enableGeoLocalization = function () {
+                        if (navigator && navigator.geolocation) {
+                            $rootScope.toggleSpinner = true;
+                            navigator.geolocation.getCurrentPosition(
+                                function (response) {
+                                    var currentPosition = {
+                                        position: new google.maps.LatLng(response.coords.latitude, response.coords.longitude),
+                                        title: 'Tu sei qui',
+                                        icon: require('../../../images/current-position.png'),
+                                        id: 1111
+                                    };
+                                    mapOptions.center = new google.maps.LatLng(response.coords.latitude, response.coords.longitude);
+                                    map = new google.maps.Map(document.querySelector('#google-map'), mapOptions);
+                                    $timeout(function () {
+                                        loadPlaces(map, places, currentPosition);
+                                        $rootScope.toggleSpinner = false;
+                                    }, 200);
+                                },
+                                function (error) {
+                                    $timeout(function () {
+                                        $rootScope.toggleSpinner = false;
+                                    }, 200);
+                                }
+                            );
                         }
-                    });
+                    };
 
-                }, 200);
+                });
 
                 function loadPlaces(map, places, currentPosition) {
                     if (currentPosition) {
@@ -110,41 +94,13 @@ function GoogleMap($rootScope, GoogleMapInit, $timeout) {
                         google.maps.event.addListener(marker, 'click', function () {
 
                             var placeData = this;
+                            $timeout(function () {
+                                scope.placeSelected = {
+                                    id: placeData.id,
+                                    title: placeData.title
+                                };
+                            }, 200);
 
-                            $rootScope.$apply(function () {
-                                $rootScope.toggleModal = true;
-
-                                if ($rootScope.IS_AUTH) {
-                                    $rootScope.modalData = {
-                                        text: placeData.title,
-                                        closeicon: true,
-                                        goToPage: {
-                                            id: placeData.id,
-                                            state: 'playground',
-                                            label: 'Dettaglio del campo'
-                                        },
-                                        checkin: {
-                                            id: placeData.id,
-                                            state: 'checkin',
-                                            label: 'Fai check-in'
-                                        }
-                                        /*navigate: {
-                                         label: $rootScope.LANGUAGE.TOMTOM
-                                         }*/
-                                    };
-                                }
-                                else {
-                                    $rootScope.modalData = {
-                                        text: placeData.title,
-                                        closeicon: true,
-                                        goToPage: {
-                                            id: placeData.id,
-                                            state: 'playground',
-                                            label: 'Dettaglio del campo'
-                                        }
-                                    };
-                                }
-                            });
                         });
                     }
                 }

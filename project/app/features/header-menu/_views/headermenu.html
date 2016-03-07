@@ -9,15 +9,18 @@
         </div>
     </header>
 
-    <i ng-click="changeMenuStatus()" class="header-icon-menu icon-navicon"></i>
-    <article ui-view></article>
-    <overlay overlay-status="toggleMenu"></overlay>
+    <i ng-click="handleMenuStatus()" class="header-icon-menu icon-navicon"></i>
+    <article>
+        <ui-view></ui-view>
+        <spinner ng-if="toggleSpinner"></spinner>
+        <overlay ng-if="toggleMenu || toggleSpinner || toggleModal"></overlay>
+    </article>
 
 </section>
 <aside ng-class="{'active' : toggleMenu}">
     <nav>
         <div ng-repeat="menu in menuData track by menu.id"
-             ng-click="menuChangePage($event, menu.state)"
+             ng-click="handleNavigation($event, menu.state)"
              ng-bind="menu.label"
              ng-if="!menu.require_auth || !menu.show_after_auth"
              class="header-menu-toolbar-button">

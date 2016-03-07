@@ -6,17 +6,17 @@
 
 "use strict";
 
-angular.module("directives.overlay", []).directive("overlay", Overlay);
-Overlay.$inject = [];
+angular.module("directives.overlay", []).directive("overlay", OverlayDirective);
+OverlayDirective.$inject = [];
 
 
-function Overlay() {
+function OverlayDirective() {
     return {
         restrict: "E",
         replace: true,
         scope: {
             overlayStatus: "="
         },
-        template: '<div class="overlay" ng-class="{\'active\' : overlayStatus}"></div>'
+        template: '<div class="overlay"></div>'
     };
 }

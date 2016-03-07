@@ -25,7 +25,6 @@ function DefineArea($rootScope) {
                         .setAttribute('style',
                             'padding-top: ' + $rootScope.DEVICE.paddingTopHeader + 'px; height: ' + $rootScope.DEVICE.header + 'px;');
                     document.querySelector('.titleWidth').setAttribute('style', 'width:' + $rootScope.DEVICE.titleWidth + 'px;');
-                    document.querySelector('.topMenu').setAttribute('style', 'top:' + $rootScope.DEVICE.topMenu + 'px;');
 
                 }
                 else if (scope.typeArea === 'backbuttonAccess') {

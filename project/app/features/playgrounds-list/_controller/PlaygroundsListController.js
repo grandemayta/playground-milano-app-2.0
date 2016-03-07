@@ -7,16 +7,13 @@
 "use strict";
 
 angular.module("playgrounds-list.controller", []).controller("PlaygroundsListController", PlaygroundsListController);
-PlaygroundsListController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
+PlaygroundsListController.$inject = ["$rootScope", "playgroundsResponse", "$scope", "$state"];
 
 
-function PlaygroundsListController($rootScope, $scope, $state, RestService) {
+function PlaygroundsListController($rootScope, playgroundsResponse, $scope, $state) {
 
     $rootScope.pageTitle = 'Lista dei campi';
-
-    RestService.get('playgrounds').then(function (response) {
-        $scope.playgrounds = response.data;
-    });
+    $scope.playgrounds = playgroundsResponse.data;
 
     $scope.detail = function () {
         $state.go('playground.details', {id: $rootScope.modalData.id});

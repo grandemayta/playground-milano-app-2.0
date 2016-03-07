@@ -2,11 +2,8 @@
 
     <div ui-view></div>
 
-    <!-- SPINNER -->
     <spinner ng-if="toggleSpinner"></spinner>
-    <!-- OVERLAY -->
-    <div ng-class="(toggleSpinner || toggleModal) ? 'open-overlay' : 'close-overlay'" class="overlay"></div>
-    <!-- MODAL -->
+    <overlay ng-if="toggleMenu || toggleSpinner || toggleModal"></overlay>
     <modal ng-class="toggleModal ? 'open-modal' : 'close-modal'"></modal>
 
 </div>
