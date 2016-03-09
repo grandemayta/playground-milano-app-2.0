@@ -7,10 +7,10 @@
 "use strict";
 
 angular.module("friends-tabs-list", []).config(FriendsTabsListConfig);
-FriendsTabsListConfig.$inject = ["$stateProvider", "$rootScope"];
+FriendsTabsListConfig.$inject = ["$stateProvider"];
 
 
-function FriendsTabsListConfig($stateProvider, $rootScope) {
+function FriendsTabsListConfig($stateProvider) {
 
     $stateProvider
         .state("friends.list", {
@@ -29,7 +29,7 @@ function FriendsTabsListConfig($stateProvider, $rootScope) {
                     return deferred.promise;
                 }],
                 listResponse: ["LoadDataResolve", function (LoadDataResolve) {
-                    return LoadDataResolve("GET", `friends/${$rootScope.userData.id}`);
+                    return LoadDataResolve("GET", `friends`);
                 }]
             },
             views: {
