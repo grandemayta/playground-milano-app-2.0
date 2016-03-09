@@ -1,0 +1,18 @@
+<tabs class="swiper-container">
+    <!-- TAB NAVIGATION -->
+    <ul id="tabs-navigation" class="tabs-number-2">
+        <li><i ng-click="changeTab(0)" class="active-tab icon-contacs"></i></li>
+        <li><i ng-click="changeTab(1)" class="icon-contact-add-2"></i></li>
+    </ul>
+    <!-- TAB CONTENT -->
+    <div class="swiper-wrapper">
+        <!-- TAB1 -->
+        <div class="swiper-slide">
+            <div ui-view="list"></div>
+        </div>
+        <!-- TAB2 -->
+        <div class="swiper-slide">
+            <div ui-view="search"></div>
+        </div>
+    </div>
+</tabs>

@@ -20,6 +20,9 @@ import "./playground-tabs";
 import "./playground-tabs-details";
 import "./playground-tabs-checkins";
 import "./playground-tabs-comments";
+import "./friends-tabs";
+import "./friends-tabs-list";
+import "./friends-tabs-search";
 
 
 angular.module("features", [
@@ -36,5 +39,8 @@ angular.module("features", [
     "playground-tabs",
     "playground-tabs-details",
     "playground-tabs-checkins",
-    "playground-tabs-comments"
+    "playground-tabs-comments",
+    "friends-tabs",
+    "friends-tabs-list",
+    "friends-tabs-search"
 ]);
