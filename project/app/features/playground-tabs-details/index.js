@@ -16,11 +16,12 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
         .state("playground.details", {
             url: "/dettaglio-del-campo/:id",
             parent: "playground",
+            title: "Campo",
             resolve: {
                 load: ["$q", "$ocLazyLoad", function ($q, $ocLazyLoad) {
                     var deferred = $q.defer();
                     require.ensure([], function (require) {
-                            var module = require("./_controller/PlaygroundTabsDetailsHomeController");
+                            var module = require("./_controller/PlaygroundTabsDetailsController");
                             $ocLazyLoad.load({name: "playground-tabs-details.controller"});
                             deferred.resolve(module);
                         }
@@ -30,11 +31,11 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
             },
             views: {
                 home: {
-                    controller: "PlaygroundTabsDetailsHomeController",
+                    controller: "PlaygroundTabsDetailsController",
                     templateProvider: ["$q", function ($q) {
                         var deferred = $q.defer();
                         require.ensure([], function (require) {
-                                var template = require("./_views/home.html");
+                                var template = require("./_views/details.html");
                                 deferred.resolve(template);
                             }
                         );

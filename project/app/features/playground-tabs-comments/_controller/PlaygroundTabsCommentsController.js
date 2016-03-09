@@ -6,11 +6,11 @@
 
 "use strict";
 
-angular.module("playground-tabs-details.controller", []).controller("PlaygroundTabsDetailsCommentsController", PlaygroundTabsDetailsCommentsController);
-PlaygroundTabsDetailsCommentsController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
+angular.module("playground-tabs-comments.controller", []).controller("PlaygroundTabsCommentsController", PlaygroundTabsCommentsController);
+PlaygroundTabsCommentsController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
 
 
-function PlaygroundTabsDetailsCommentsController($rootScope, $scope, $state, RestService) {
+function PlaygroundTabsCommentsController($rootScope, $scope, $state, RestService) {
 
     var id_playground = $state.params.id;
     $scope.userComment = '';
@@ -24,8 +24,7 @@ function PlaygroundTabsDetailsCommentsController($rootScope, $scope, $state, Res
 
     if ($rootScope.IS_AUTH) {
         RestService.get('comments/' + $rootScope.userData.id + '/' + id_playground).then(function (response) {
-            if (response['message']) $scope.userHasComment = false;
-            else $scope.userHasComment = true;
+            $scope.userHasComment = !response['message'] || true;
         });
     }
 

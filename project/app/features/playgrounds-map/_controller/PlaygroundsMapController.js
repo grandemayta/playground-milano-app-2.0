@@ -12,7 +12,6 @@ PlaygroundsMapController.$inject = ["$rootScope", "playgroundsResponse", "$scope
 
 function PlaygroundsMapController($rootScope, playgroundsResponse, $scope, $state) {
 
-    $rootScope.pageTitle = 'Mappa dei campi';
     $scope.playgrounds = playgroundsResponse.data;
 
     $scope.$watch('placeSelected', function (placeSelected) {

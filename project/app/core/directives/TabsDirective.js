@@ -25,17 +25,16 @@ function Tabs($rootScope, $timeout, $state) {
                     allowSwipeToPrev: false,
                     onSlideChangeStart: function (e) {
                         $timeout(function () {
-                            console.log($rootScope.currentPage);
                             $rootScope.currentTabPage = $rootScope.currentPage + '_' + e.activeIndex;
                             switch (e.activeIndex) {
                                 case 0:
-                                    $state.go("playground.details", {id: "558710e7627992030032a02f"});
+                                    $state.go("playground.details", {id: $state.params.id});
                                     break;
                                 case 1:
-                                    $state.go("playground.checkins", {id: "558710e7627992030032a02f"});
+                                    $state.go("playground.checkins", {id: $state.params.id});
                                     break;
                                 case 2:
-                                    $state.go("playground.comments", {id: "558710e7627992030032a02f"});
+                                    $state.go("playground.comments", {id: $state.params.id});
                                     break;
                             }
                         }, 200);

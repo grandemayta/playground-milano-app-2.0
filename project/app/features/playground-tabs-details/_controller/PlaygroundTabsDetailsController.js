@@ -6,15 +6,19 @@
 
 "use strict";
 
-angular.module("playground-tabs-details.controller", []).controller("PlaygroundTabsDetailsHomeController", PlaygroundTabsDetailsHomeController);
-PlaygroundTabsDetailsHomeController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
+angular.module("playground-tabs-details.controller", []).controller("PlaygroundTabsDetailsController", PlaygroundTabsDetailsController);
+PlaygroundTabsDetailsController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
 
 
-function PlaygroundTabsDetailsHomeController($rootScope, $scope, $state, RestService) {
+function PlaygroundTabsDetailsController($rootScope, $scope, $state, RestService) {
 
     $scope.favourites = false;
     var id_playground = $state.params.id;
     var tabTitles = {playground_0: 'Recensione', playground_1: 'Checkins', playground_2: 'Commenti'};
+
+    $scope.figa = function () {
+        $state.go("playground.checkins", {id: id_playground});
+    };
 
     $rootScope.$watch('currentTabPage', function (currentTabPage) {
         $rootScope.pageTitle = tabTitles[currentTabPage];

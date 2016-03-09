@@ -7,10 +7,11 @@
 "use strict";
 
 angular.module("configs.state-change", []).run(StateChangeConfig);
-StateChangeConfig.$inject = ["$rootScope", "$state", "localStorageService", "COMPONENTS_VALUES"];
+StateChangeConfig.$inject = ["$rootScope", "$state", "localStorageService", "COMPONENTS_VALUES", "$timeout"];
 
 
-function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_VALUES) {
+function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_VALUES, $timeout) {
+
     $rootScope.$on("$stateChangeStart", function (event, toState) {
 
         $rootScope.userData = localStorageService.get("user");
@@ -59,6 +60,7 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
             && $rootScope.currentPage !== "faq.servizi.recensione") {
             event.preventDefault();
         }
+
         if ($rootScope.IS_AUTH
             && ($rootScope.currentPage === "splashscreen"
             || $rootScope.currentPage === "social"
@@ -69,4 +71,11 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
         }
 
     });
+
+    $rootScope.$on("$stateChangeSuccess", function (event, toState) {
+        $timeout(function () {
+            $rootScope.pageTitle = toState.title;
+        }, 200);
+    });
+
 }

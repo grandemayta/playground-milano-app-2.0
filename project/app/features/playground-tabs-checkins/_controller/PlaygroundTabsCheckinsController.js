@@ -6,11 +6,11 @@
 
 "use strict";
 
-angular.module("playground-tabs-details.controller", []).controller("PlaygroundTabsDetailsCheckinsController", PlaygroundTabsDetailsCheckinsController);
-PlaygroundTabsDetailsCheckinsController.$inject = ["$scope", "$state", "RestService"];
+angular.module("playground-tabs-checkins.controller", []).controller("PlaygroundTabsCheckinsController", PlaygroundTabsCheckinsController);
+PlaygroundTabsCheckinsController.$inject = ["$scope", "$state", "RestService"];
 
 
-function PlaygroundTabsDetailsCheckinsController($scope, $state, RestService) {
+function PlaygroundTabsCheckinsController($scope, $state, RestService) {
 
     var id_playground = $state.params.id;
 

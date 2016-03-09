@@ -13,14 +13,12 @@ import "./GoogleMapDirective";
 import "./TabsDirective";
 import "./SpinnerDirective";
 import "./OverlayDirective";
-import "./LoadTemplatesDirectives";
 
 
 angular.module("directives", [
     "directives.back-button",
     "directives.define-area",
     "directives.google-map",
-    "directives.load-template",
     "directives.modal",
     "directives.spinner",
     "directives.overlay",

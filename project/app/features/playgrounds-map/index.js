@@ -14,8 +14,9 @@ function PlaygroundsMapConfig($stateProvider) {
 
     $stateProvider
         .state("playgroundsmap", {
-            parent: 'headermenu',
-            url: '/mappa-dei-campi',
+            parent: "headermenu",
+            url: "/mappa-dei-campi",
+            title: "Mappa dei campi",
             controller: "PlaygroundsMapController",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();

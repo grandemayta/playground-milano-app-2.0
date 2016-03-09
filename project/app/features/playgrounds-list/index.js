@@ -14,8 +14,9 @@ function PlaygroundsListConfig($stateProvider) {
 
     $stateProvider
         .state("playgroundslist", {
-            parent: 'headermenu',
-            url: '/lista-dei-campi',
+            parent: "headermenu",
+            url: "/lista-dei-campi",
+            title: "Lista dei campi",
             controller: "PlaygroundsListController",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();

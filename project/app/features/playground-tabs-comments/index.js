@@ -6,22 +6,23 @@
 
 "use strict";
 
-angular.module("playground-comments", []).config(PlaygroundCommentsConfig);
-PlaygroundCommentsConfig.$inject = ["$stateProvider"];
+angular.module("playground-tabs-comments", []).config(PlaygroundTabsCommentsConfig);
+PlaygroundTabsCommentsConfig.$inject = ["$stateProvider"];
 
 
-function PlaygroundCommentsConfig($stateProvider) {
+function PlaygroundTabsCommentsConfig($stateProvider) {
 
     $stateProvider
         .state("playground.comments", {
             url: "/dettaglio-del-campo/:id",
             parent: "playground",
+            title: "Commenti",
             resolve: {
                 load: ["$q", "$ocLazyLoad", function ($q, $ocLazyLoad) {
                     var deferred = $q.defer();
                     require.ensure([], function (require) {
-                            var module = require("./_controller/PlaygroundTabsDetailsCommentsController");
-                            $ocLazyLoad.load({name: "playground-comments.controller"});
+                            var module = require("./_controller/PlaygroundTabsCommentsController");
+                            $ocLazyLoad.load({name: "playground-tabs-comments.controller"});
                             deferred.resolve(module);
                         }
                     );
@@ -30,7 +31,7 @@ function PlaygroundCommentsConfig($stateProvider) {
             },
             views: {
                 comments: {
-                    controller: "PlaygroundTabsDetailsCommentsController",
+                    controller: "PlaygroundTabsCommentsController",
                     templateProvider: ["$q", function ($q) {
                         var deferred = $q.defer();
                         require.ensure([], function (require) {

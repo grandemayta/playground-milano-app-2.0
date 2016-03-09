@@ -19,7 +19,7 @@ import "./playgrounds-map";
 import "./playground-tabs";
 import "./playground-tabs-details";
 import "./playground-tabs-checkins";
-import "./playground-comments";
+import "./playground-tabs-comments";
 
 
 angular.module("features", [
@@ -36,5 +36,5 @@ angular.module("features", [
     "playground-tabs",
     "playground-tabs-details",
     "playground-tabs-checkins",
-    "playground-comments"
+    "playground-tabs-comments"
 ]);
