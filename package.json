@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "1.4.9",
+    "angular-cookies": "1.4.9",
     "angular-i18n": "1.4.9",
     "angular-local-storage": "0.2.6",
     "angular-touch": "1.4.9",

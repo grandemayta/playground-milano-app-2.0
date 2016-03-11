@@ -11,6 +11,7 @@ import angular                             from "angular";
 import oclazyload                          from "oclazyload";
 import uiRouter                            from "angular-ui-router";
 import ngTouch                             from "angular-touch";
+import ngCookies                           from "angular-cookies";
 import LocalStorageModule                  from "angular-local-storage";
 import ngLocale                            from "angular-i18n/it-it";
 import pascalprechtTranslate               from "angular-translate";
@@ -23,6 +24,7 @@ angular.module("app", [
         oclazyload,
         uiRouter,
         ngTouch,
+        ngCookies,
         LocalStorageModule,
         ngLocale,
         pascalprechtTranslate,

@@ -5,11 +5,13 @@
  */
 
 angular.module("services.load-data-resolve", []).factory("LoadDataResolve", LoadDataResolve);
-LoadDataResolve.$inject = ["$rootScope", "$q", "$http", "ENV"];
+LoadDataResolve.$inject = ["$rootScope", "$q", "$http", "ENV", "NavigationService"];
 
-function LoadDataResolve($rootScope, $q, $http, ENV) {
+function LoadDataResolve($rootScope, $q, $http, ENV, NavigationService) {
 
-    return function (method, endpoint, params) {
+    return function (method, endpoint, params, array) {
+
+        if (!_.isEmpty(array)) endpoint += NavigationService.getValue(array);
 
         var BASE_URL = ENV[$rootScope.env];
         var httpConfigs = [

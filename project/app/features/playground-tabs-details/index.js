@@ -27,6 +27,9 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
                         }
                     );
                     return deferred.promise;
+                }],
+                playgroundDetailsResponse: ["LoadDataResolve", function (LoadDataResolve) {
+                    return LoadDataResolve("GET", "playgrounds", null, ["playgroundId"]);
                 }]
             },
             views: {

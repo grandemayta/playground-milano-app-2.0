@@ -3,10 +3,6 @@
     <header define-area type-area="paddingTopHeader">
         <i back-button ng-if="toggleBackButton" class="header-icon-arrow icon-chevron-left"></i>
         <div ng-bind="pageTitle" class="titleWidth header-title"></div>
-        <div ng-if="IS_AUTH" class="header-icons-content">
-            <i ng-if="currentPage !== 'friends'" ui-sref="friends" class="header-icons-center icon-contacs"></i>
-            <i ng-if="currentPage !== 'favourites'" ui-sref="favourites" class="header-icons-center icon-heart-small"></i>
-        </div>
     </header>
 
     <i ng-click="handleMenuStatus()" class="header-icon-menu icon-navicon"></i>
