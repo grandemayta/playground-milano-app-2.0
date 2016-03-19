@@ -7,28 +7,22 @@
 "use strict";
 
 angular.module("playground-tabs-comments.controller", []).controller("PlaygroundTabsCommentsController", PlaygroundTabsCommentsController);
-PlaygroundTabsCommentsController.$inject = ["$rootScope", "$scope", "$state", "RestService"];
+PlaygroundTabsCommentsController.$inject = ["$rootScope", "$scope", "playgroundCommentsResponse", "$state", "RestService"];
 
 
-function PlaygroundTabsCommentsController($rootScope, $scope, $state, RestService) {
+function PlaygroundTabsCommentsController($rootScope, $scope, playgroundCommentsResponse, $state, RestService) {
 
     var id_playground = $state.params.id;
     $scope.userComment = '';
     $scope.userHasComment = false;
 
-    $scope.loadComments = function () {
-        RestService.get('comments/playground/' + id_playground).then(function (response) {
-            $scope.playgroundComments = response.data;
-        });
-    };
+    $scope.playgroundComments = playgroundCommentsResponse.data;
 
     if ($rootScope.IS_AUTH) {
         RestService.get('comments/' + $rootScope.userData.id + '/' + id_playground).then(function (response) {
             $scope.userHasComment = !response['message'] || true;
         });
     }
-
-    $scope.loadComments();
 
     $scope.toggleCommentPanel = function () {
         $scope.toggleCommentPanelStatus = ~$scope.toggleCommentPanelStatus;

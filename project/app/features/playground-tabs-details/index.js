@@ -29,7 +29,7 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
                     return deferred.promise;
                 }],
                 playgroundDetailsResponse: ["HttpWrapper", function (HttpWrapper) {
-                    return HttpWrapper("GET", "playgrounds/idPlayground");
+                    return HttpWrapper("GET", "playgrounds:idPlayground");
                 }]
             },
             views: {

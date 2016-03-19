@@ -27,6 +27,9 @@ function PlaygroundTabsCommentsConfig($stateProvider) {
                         }
                     );
                     return deferred.promise;
+                }],
+                playgroundCommentsResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "comments/playground:idPlayground");
                 }]
             },
             views: {

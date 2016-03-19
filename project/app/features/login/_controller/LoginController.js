@@ -7,15 +7,14 @@
 "use strict";
 
 angular.module("login.controller", []).controller("LoginController", LoginController);
-LoginController.$inject = ["$scope", "$state", "RestService", "localStorageService"];
+LoginController.$inject = ["$scope", "HttpWrapper", "Navigation"];
 
 
-function LoginController($scope, $state, RestService, localStorageService) {
+function LoginController($scope, HttpWrapper, Navigation) {
 
     $scope.formLogin = function () {
-        RestService.post('login', $scope.user).then(function (response) {
-            localStorageService.set('user', JSON.stringify(response.data));
-            $state.go('playgrounds.map');
+        HttpWrapper("POST", "login", $scope.user).then(function (response) {
+            Navigation("playgroundsmap", ["sessionData", "idUser"], [response.data, response.data.id]);
         });
     };
 

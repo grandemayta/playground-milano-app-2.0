@@ -13,14 +13,32 @@ function StorageService($cookies) {
 
     factory.setItem = function (key, value) {
         key = `_${key}`;
-        if (_.isObject(value)) $cookies.putObject(key, value);
-        else $cookies.put(key, value);
+        $cookies.putObject(key, value);
+    };
+
+    factory.setItems = function (keys, values) {
+        _.each(values, function (value, index) {
+            keys[index] = `_${keys[index]}`;
+            $cookies.putObject(keys[index], value);
+        });
     };
 
     factory.getItem = function (key) {
         key = `_${key}`;
-        var checkValue = $cookies.get(key);
+        var checkValue = $cookies.getObject(key);
         return checkValue || '';
+    };
+
+    factory.deleteItem = function (key) {
+        key = `_${key}`;
+        $cookies.remove(key);
+    };
+
+    factory.deleteItems = function (keys) {
+        _.each(keys, function (key) {
+            key = `_${key}`;
+            $cookies.remove(key);
+        });
     };
 
     return factory;

@@ -18,7 +18,6 @@
         <div ng-repeat="menu in menuData track by menu.id"
              ng-click="handleNavigation($event, menu.state)"
              ng-bind="menu.label"
-             ng-if="!menu.require_auth || !menu.show_after_auth"
              class="header-menu-toolbar-button">
         </div>
     </nav>

@@ -12,7 +12,7 @@ function MakeUrlService(Storage) {
     return function (url) {
 
         var builUrl = url;
-        var urlSplit = url.split('/');
+        var urlSplit = url.split(':');
 
         if (urlSplit.length > 0) {
             builUrl = urlSplit[0];
