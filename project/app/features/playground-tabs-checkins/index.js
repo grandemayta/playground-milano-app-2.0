@@ -14,7 +14,7 @@ function PlaygroundTabsCheckinsConfig($stateProvider) {
 
     $stateProvider
         .state("playground.checkins", {
-            url: "/dettaglio-del-campo/:id",
+            url: "/dettaglio-del-campo",
             parent: "playground",
             title: "Checkins",
             resolve: {

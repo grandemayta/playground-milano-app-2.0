@@ -8,11 +8,12 @@
 
 import "./BackButtonDirective";
 import "./DefineAreaDirective";
-import "./ModalDirective";
 import "./GoogleMapDirective";
-import "./TabsDirective";
+import "./ModalDirective";
 import "./SpinnerDirective";
 import "./OverlayDirective";
+import "./TabsDirective";
+import "./NavigationDirective";
 
 
 angular.module("directives", [
@@ -22,5 +23,6 @@ angular.module("directives", [
     "directives.modal",
     "directives.spinner",
     "directives.overlay",
-    "directives.tabs"
+    "directives.tabs",
+    "directives.navigation"
 ]);

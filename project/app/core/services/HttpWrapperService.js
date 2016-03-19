@@ -4,19 +4,17 @@
  *
  */
 
-angular.module("services.load-data-resolve", []).factory("LoadDataResolve", LoadDataResolve);
-LoadDataResolve.$inject = ["$rootScope", "$q", "$http", "ENV", "NavigationService"];
+angular.module("services.http-wrapper-service", []).factory("HttpWrapper", HttpWrapperService);
+HttpWrapperService.$inject = ["$rootScope", "$q", "$http", "ENV", "MakeUrl"];
 
-function LoadDataResolve($rootScope, $q, $http, ENV, NavigationService) {
+function HttpWrapperService($rootScope, $q, $http, ENV, MakeUrl) {
 
-    return function (method, endpoint, params, array) {
-
-        if (!_.isEmpty(array)) endpoint += NavigationService.getValue(array);
+    return function (method, endpoint, params) {
 
         var BASE_URL = ENV[$rootScope.env];
         var httpConfigs = [
-            {method: method, url: `${BASE_URL}/${endpoint}`},
-            {method: method, url: `${BASE_URL}/${endpoint}`, data: params}
+            {method: method, url: `${BASE_URL}/${MakeUrl(endpoint)}`},
+            {method: method, url: `${BASE_URL}/${MakeUrl(endpoint)}`, data: params}
         ];
 
         var httpConfigSelected = _.isEmpty(params) ? httpConfigs[0] : httpConfigs[1];

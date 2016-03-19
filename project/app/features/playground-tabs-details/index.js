@@ -14,7 +14,7 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
 
     $stateProvider
         .state("playground.details", {
-            url: "/dettaglio-del-campo/:id",
+            url: "/dettaglio-del-campo",
             parent: "playground",
             title: "Campo",
             resolve: {
@@ -28,8 +28,8 @@ function PlaygroundTabsDetailsConfig($stateProvider) {
                     );
                     return deferred.promise;
                 }],
-                playgroundDetailsResponse: ["LoadDataResolve", function (LoadDataResolve) {
-                    return LoadDataResolve("GET", "playgrounds", null, ["playgroundId"]);
+                playgroundDetailsResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "playgrounds/idPlayground");
                 }]
             },
             views: {

@@ -4,36 +4,14 @@
  *
  */
 
-angular.module("services.navigation", []).factory("NavigationService", NavigationService);
-NavigationService.$inject = ["$state", "$cookies"];
+angular.module("services.navigation-service", []).factory("Navigation", NavigationService);
+NavigationService.$inject = ["Storage", "$state"];
 
-function NavigationService($state, $cookies) {
+function NavigationService(Storage, $state) {
 
-    var service = {};
-
-    service.goToState = function (state, type, value) {
-
-        switch (type) {
-            case "userId":
-                _goToState("_userId", state, value);
-                break;
-            case "playgroundId":
-                _goToState("_playgroundId", state, value);
-                break;
-        }
-
-        function _goToState(key, state, value) {
-            $cookies.put(key, value);
-            $state.go(state);
-        }
-
+    return function (state, key, value) {
+        if (!_.isEmpty(key) && !_.isEmpty(value)) Storage.setItem(key, value);
+        $state.go(state);
     };
-
-    service.getValue = function (type) {
-        var checkValue = $cookies.get(`_${type[0]}`);
-        return checkValue ? `/${checkValue}` : '';
-    };
-
-    return service;
 
 }

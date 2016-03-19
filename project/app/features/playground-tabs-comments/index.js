@@ -14,7 +14,7 @@ function PlaygroundTabsCommentsConfig($stateProvider) {
 
     $stateProvider
         .state("playground.comments", {
-            url: "/dettaglio-del-campo/:id",
+            url: "/dettaglio-del-campo",
             parent: "playground",
             title: "Commenti",
             resolve: {

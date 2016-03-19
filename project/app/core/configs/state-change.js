@@ -26,7 +26,7 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
         $rootScope.toggleSpinner = false;
         $rootScope.toggleMenu = false;
 
-        if (!$rootScope.IS_AUTH
+        /*if (!$rootScope.IS_AUTH
             && $rootScope.currentPage !== "splashscreen"
             && $rootScope.currentPage !== "social"
             && $rootScope.currentPage !== "login"
@@ -67,8 +67,8 @@ function StateChangeConfig($rootScope, $state, localStorageService, COMPONENTS_V
             || $rootScope.currentPage === "login"
             || $rootScope.currentPage === "registration")) {
             event.preventDefault();
-            $state.transitionTo("map");
-        }
+            $state.transitionTo("playgroundsmap");
+        }*/
 
     });
 

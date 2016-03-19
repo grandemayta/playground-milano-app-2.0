@@ -10,7 +10,9 @@ import "./RestService";
 import "./GoogleMapInitService";
 import "./OAuthService";
 import "./DialogsService";
-import "./LoadDataResolve";
+import "./HttpWrapperService";
+import "./StorageService";
+import "./MakeUrlService";
 import "./NavigationService";
 
 
@@ -19,6 +21,8 @@ angular.module("services", [
     "services.google-map-init",
     "services.o-auth-service",
     "services.rest-service",
-    "services.load-data-resolve",
-    "services.navigation"
+    "services.http-wrapper-service",
+    "services.storage-service",
+    "services.make-url-service",
+    "services.navigation-service"
 ]);

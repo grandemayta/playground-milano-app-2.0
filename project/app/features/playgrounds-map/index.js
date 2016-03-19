@@ -38,8 +38,8 @@ function PlaygroundsMapConfig($stateProvider) {
                     );
                     return deferred.promise;
                 }],
-                playgroundsResponse: ["LoadDataResolve", function (LoadDataResolve) {
-                    return LoadDataResolve("GET", "playgrounds");
+                playgroundsResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "playgrounds");
                 }]
             }
         });
