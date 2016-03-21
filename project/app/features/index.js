@@ -23,6 +23,8 @@ import "./playground-tabs-comments";
 import "./friends-tabs";
 import "./friends-tabs-list";
 import "./friends-tabs-search";
+import "./favourites";
+import "./checkin";
 
 
 angular.module("features", [
@@ -42,5 +44,7 @@ angular.module("features", [
     "playground-tabs-comments",
     "friends-tabs",
     "friends-tabs-list",
-    "friends-tabs-search"
+    "friends-tabs-search",
+    "favourites",
+    "checkin"
 ]);

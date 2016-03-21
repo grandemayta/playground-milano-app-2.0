@@ -14,7 +14,7 @@ function FriendsTabsListConfig($stateProvider) {
 
     $stateProvider
         .state("friends.list", {
-            url: "/amici/:id",
+            url: "/amici",
             parent: "friends",
             title: "Amici",
             resolve: {
@@ -28,8 +28,8 @@ function FriendsTabsListConfig($stateProvider) {
                     );
                     return deferred.promise;
                 }],
-                listResponse: ["LoadDataResolve", function (LoadDataResolve) {
-                    return LoadDataResolve("GET", `friends`);
+                FriendslistResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "my-friends:idUser");
                 }]
             },
             views: {

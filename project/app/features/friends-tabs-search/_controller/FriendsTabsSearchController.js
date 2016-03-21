@@ -12,10 +12,6 @@ FriendsTabsSearchController.$inject = ["$rootScope", "$scope", "RestService"];
 
 function FriendsTabsSearchController($rootScope, $scope, RestService) {
 
-    RestService.get('my-friends/' + $rootScope.userData.id).then(function (response) {
-        $scope.myfriends = response.data;
-    });
-
     $scope.searchFriends = function (idUser, value) {
         if (value.length >= 3) {
             RestService.get('search-users/' + idUser + '/' + value).then(function (response) {
@@ -32,17 +28,6 @@ function FriendsTabsSearchController($rootScope, $scope, RestService) {
             $rootScope.toggleModal = true;
             $rootScope.modalData = {
                 text: 'Amico aggiunto',
-                closebutton: true
-            };
-        });
-    };
-
-    $scope.removeUser = function (idUser, idFriend) {
-        RestService.remove('friends/' + idUser + '/' + idFriend).then(function (response) {
-            $scope.myfriends = response.data;
-            $rootScope.toggleModal = true;
-            $rootScope.modalData = {
-                text: 'Amico rimosso',
                 closebutton: true
             };
         });

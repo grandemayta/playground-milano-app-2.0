@@ -1,0 +1,11 @@
+{
+  "playground": [
+    "playground.details",
+    "playground.checkins",
+    "playground.comments"
+  ],
+  "friends": [
+    "friends.list",
+    "friends.search"
+  ]
+}

@@ -6,11 +6,11 @@
 
 "use strict";
 
-angular.module("directives.spinner", []).directive("spinner", Spinner);
-Spinner.$inject = [];
+angular.module("directives.spinner", []).directive("spinner", SpinnerDirective);
+SpinnerDirective.$inject = [];
 
 
-function Spinner() {
+function SpinnerDirective() {
     return {
         restrict: "E",
         replace: true,

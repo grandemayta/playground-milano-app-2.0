@@ -6,7 +6,8 @@
 
 "use strict";
 
-import menuData           from "../data/menu.json";
+import menuGuest           from "data/menu-guest.json";
+import menuUser            from "data/menu-user.json";
 
 angular.module("header-menu.controller", []).controller("HeaderMenuController", HeaderMenuController);
 HeaderMenuController.$inject = ["$rootScope", "$scope", "HttpWrapper", "Navigation"];
@@ -14,14 +15,13 @@ HeaderMenuController.$inject = ["$rootScope", "$scope", "HttpWrapper", "Navigati
 function HeaderMenuController($rootScope, $scope, HttpWrapper, Navigation) {
 
     $rootScope.toggleMenu = false;
-    $scope.menuData = menuData;
+    $scope.menuData = $rootScope.IS_AUTH ? menuUser : menuGuest;
 
     $scope.handleMenuStatus = function () {
         $rootScope.toggleMenu = !$rootScope.toggleMenu;
     };
 
-    $scope.handleNavigation = function ($event, page) {
-        $event.preventDefault();
+    $scope.handleNavigation = function (page) {
         $rootScope.toggleMenu = false;
         if (page === "logout") $scope.logout();
         else Navigation(page);

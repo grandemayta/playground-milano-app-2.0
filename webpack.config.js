@@ -47,7 +47,8 @@ module.exports = {
             "lodash": "lodash/lodash.js",
             "js-marker-clusterer": "lib/js-marker-clusterer.js",
             "lib": "lib",
-            "scss": "scss"
+            "scss": "scss",
+            "data": "app/data"
         }
     },
     plugins: [

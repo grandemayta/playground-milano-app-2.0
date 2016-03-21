@@ -6,22 +6,22 @@
 
 "use strict";
 
-angular.module("playgrounds-list", []).config(PlaygroundsListConfig);
-PlaygroundsListConfig.$inject = ["$stateProvider"];
+angular.module("checkin", []).config(CheckinConfig);
+CheckinConfig.$inject = ["$stateProvider"];
 
 
-function PlaygroundsListConfig($stateProvider) {
+function CheckinConfig($stateProvider) {
 
     $stateProvider
-        .state("playgroundslist", {
+        .state("checkin", {
             parent: "headermenu",
-            url: "/lista-dei-campi",
-            title: "Lista dei campi",
-            controller: "PlaygroundsListController",
+            url: "/checkin",
+            title: "Checkin",
+            controller: "CheckinController",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();
                 require.ensure([], function (require) {
-                        var template = require("./_views/playgrounds-list.html");
+                        var template = require("./_views/checkin.html");
                         deferred.resolve(template);
                     }
                 );
@@ -31,15 +31,15 @@ function PlaygroundsListConfig($stateProvider) {
                 load: ["$q", "$ocLazyLoad", function ($q, $ocLazyLoad) {
                     var deferred = $q.defer();
                     require.ensure([], function (require) {
-                            var module = require("./_controller/PlaygroundsListController");
-                            $ocLazyLoad.load({name: "playgrounds-list.controller"});
+                            var module = require("./_controller/CheckinController");
+                            $ocLazyLoad.load({name: "checkin.controller"});
                             deferred.resolve(module);
                         }
                     );
                     return deferred.promise;
                 }],
-                playgroundsResponse: ["HttpWrapper", function (HttpWrapper) {
-                    return HttpWrapper("GET", "playgrounds");
+                checkinResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "playgrounds:idPlayground");
                 }]
             }
         });

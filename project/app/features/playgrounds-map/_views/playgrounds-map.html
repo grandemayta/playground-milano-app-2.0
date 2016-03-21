@@ -1,6 +1,5 @@
-<div define-area type-area="withHeader">
-    <google-map playgrounds="playgrounds" ng-model="placeSelected" class="withHeader"></google-map>
-</div>
+<google-map playgrounds="playgrounds" ng-model="placeSelected"></google-map>
+
 <modal ng-if="toggleModal">
     <p ng-bind="playgroundName"></p>
     <button class="btn-playground" ng-click="handleNavigationMap()">Dettagli del campo</button>

@@ -14,7 +14,7 @@ function FriendsTabsListConfig($stateProvider) {
 
     $stateProvider
         .state("friends.search", {
-            url: "/amici/:id",
+            url: "/amici",
             parent: "friends",
             title: "Cerca",
             resolve: {

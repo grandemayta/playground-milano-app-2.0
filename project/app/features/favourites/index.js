@@ -6,22 +6,22 @@
 
 "use strict";
 
-angular.module("playgrounds-list", []).config(PlaygroundsListConfig);
-PlaygroundsListConfig.$inject = ["$stateProvider"];
+angular.module("favourites", []).config(FavouritesConfig);
+FavouritesConfig.$inject = ["$stateProvider"];
 
 
-function PlaygroundsListConfig($stateProvider) {
+function FavouritesConfig($stateProvider) {
 
     $stateProvider
-        .state("playgroundslist", {
+        .state("favourites", {
             parent: "headermenu",
-            url: "/lista-dei-campi",
-            title: "Lista dei campi",
-            controller: "PlaygroundsListController",
+            url: "/preferiti",
+            title: "Campi salvati",
+            controller: "FavouritesController",
             templateProvider: ["$q", function ($q) {
                 var deferred = $q.defer();
                 require.ensure([], function (require) {
-                        var template = require("./_views/playgrounds-list.html");
+                        var template = require("./_views/favourites.html");
                         deferred.resolve(template);
                     }
                 );
@@ -31,15 +31,15 @@ function PlaygroundsListConfig($stateProvider) {
                 load: ["$q", "$ocLazyLoad", function ($q, $ocLazyLoad) {
                     var deferred = $q.defer();
                     require.ensure([], function (require) {
-                            var module = require("./_controller/PlaygroundsListController");
-                            $ocLazyLoad.load({name: "playgrounds-list.controller"});
+                            var module = require("./_controller/FavouritesController");
+                            $ocLazyLoad.load({name: "favourites.controller"});
                             deferred.resolve(module);
                         }
                     );
                     return deferred.promise;
                 }],
-                playgroundsResponse: ["HttpWrapper", function (HttpWrapper) {
-                    return HttpWrapper("GET", "playgrounds");
+                favouritesResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "favourites:idUser");
                 }]
             }
         });

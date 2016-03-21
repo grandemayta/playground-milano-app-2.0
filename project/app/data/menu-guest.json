@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "label": "Entra con i Social",
+    "state": "social"
+  },
+  {
+    "id": 2,
+    "label": "Registrati",
+    "state": "registration"
+  },
+  {
+    "id": 3,
+    "label": "Entra",
+    "state": "login"
+  },
+  {
+    "id": 4,
+    "label": "Mappa dei Campi",
+    "state": "playgroundsmap"
+  },
+  {
+    "id": 5,
+    "label": "Lista dei Campi",
+    "state": "playgroundslist"
+  },
+  {
+    "id": 8,
+    "label": "Su di noi",
+    "state": "about"
+  },
+  {
+    "id": 9,
+    "label": "Domande frequenti",
+    "state": "faq"
+  },
+  {
+    "id": 10,
+    "label": "Privacy",
+    "state": "privacy"
+  },
+  {
+    "id": 11,
+    "label": "Crediti",
+    "state": "credits"
+  }
+]

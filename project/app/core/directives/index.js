@@ -7,7 +7,7 @@
 "use strict";
 
 import "./BackButtonDirective";
-import "./DefineAreaDirective";
+import "./ScrollableAreaDirective";
 import "./GoogleMapDirective";
 import "./ModalDirective";
 import "./SpinnerDirective";
@@ -18,7 +18,7 @@ import "./NavigationDirective";
 
 angular.module("directives", [
     "directives.back-button",
-    "directives.define-area",
+    "directives.scrollable-area",
     "directives.google-map",
     "directives.modal",
     "directives.spinner",
