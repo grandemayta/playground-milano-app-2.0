@@ -1,41 +1,54 @@
 #tabs-navigation {
-    position: absolute;
-    z-index: 100;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    list-style: none;
-    background: #280a50;
+  position: relative;
+  display: block;
+  z-index: 100;
+  width: 100%;
+  height: 40px;
+  list-style: none;
+  background: #280a50;
+  overflow: hidden;
 }
 
 #tabs-navigation li {
-    display: inline;
+  display: inline;
 }
 
 #tabs-navigation li i {
-    display: block;
-    float: left;
-    height: 40px;
-    padding-top: 8px;
-    font-size: 24px;
-    text-align: center;
-    font-style: normal;
-    color: #989898;
+  display: block;
+  float: left;
+  height: 40px;
+  padding-top: 8px;
+  font-size: 24px;
+  text-align: center;
+  font-style: normal;
+  color: #989898;
 }
 
 #tabs-navigation.tabs-number-4 li i {
-    width: 25%;
+  width: 25%;
 }
 
 #tabs-navigation.tabs-number-2 li i {
-    width: 50%;
+  width: 50%;
 }
 
 #tabs-navigation.tabs-number-3 li i {
-    width: 33.33%;
+  width: 33.33%;
 }
 
 #tabs-navigation .active-tab {
-    color: #fff;
-    border-bottom: 2px solid #fff;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+/* CUSTOM SWIPER AGGIUNTO DA GABRIEL */
+.swiper-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }

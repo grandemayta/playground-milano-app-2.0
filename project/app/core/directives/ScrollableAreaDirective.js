@@ -16,12 +16,23 @@ function ScrollableAreaDirective() {
         link: function (scope, element) {
 
             element.ready(function () {
-                console.log("Ready");
-                var height = window.innerHeight;
+                var scrollableArea = 0,
+                    scrollableTabsArea = 0,
+                    height = window.innerHeight;
                 var header = document.querySelector("header").clientHeight;
-                var scrollableArea = 0;
-                if (header) scrollableArea = height - header;
-                document.querySelector("main").setAttribute("style", `height:${scrollableArea}px;`);
+                var tabHeader = document.querySelector("#tabs-navigation") ? document.querySelector("#tabs-navigation").clientHeight : '';
+
+                if (header) scrollableArea = `height:${height - header}px;`;
+
+                if (tabHeader) {
+                    scrollableTabsArea = `height:${height - (header + tabHeader)}px;`;
+                    scrollableArea += "overflow:hidden;";
+                    [].forEach.call(document.querySelectorAll(".swiper-slide"), function (item) {
+                        item.setAttribute("style", scrollableTabsArea);
+                    });
+                }
+
+                document.querySelector("main").setAttribute("style", scrollableArea);
             });
         }
     };
