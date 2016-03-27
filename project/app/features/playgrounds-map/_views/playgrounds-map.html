@@ -2,5 +2,6 @@
 
 <modal ng-if="toggleModal">
     <p ng-bind="playgroundName"></p>
-    <button class="btn-playground" ng-click="handleNavigationMap()">Dettagli del campo</button>
+    <button class="btn-playground" ng-click="handleNavigationMap('playground.details')">Dettagli del campo</button>
+    <button class="btn-playground" ng-click="handleNavigationMap('checkin')">Fai checkin</button>
 </modal>

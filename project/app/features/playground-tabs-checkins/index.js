@@ -27,6 +27,9 @@ function PlaygroundTabsCheckinsConfig($stateProvider) {
                         }
                     );
                     return deferred.promise;
+                }],
+                playgroundCheckinsResponse: ["HttpWrapper", function (HttpWrapper) {
+                    return HttpWrapper("GET", "checkins:idPlayground");
                 }]
             },
             views: {

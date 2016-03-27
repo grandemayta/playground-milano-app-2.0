@@ -7,20 +7,19 @@
 "use strict";
 
 angular.module("playground-tabs-comments.controller", []).controller("PlaygroundTabsCommentsController", PlaygroundTabsCommentsController);
-PlaygroundTabsCommentsController.$inject = ["$rootScope", "$scope", "playgroundCommentsResponse", "$state", "RestService"];
+PlaygroundTabsCommentsController.$inject = ["$rootScope", "$scope", "playgroundCommentsResponse", "HttpWrapper", "Storage"];
 
 
-function PlaygroundTabsCommentsController($rootScope, $scope, playgroundCommentsResponse, $state, RestService) {
-
-    var id_playground = $state.params.id;
+function PlaygroundTabsCommentsController($rootScope, $scope, playgroundCommentsResponse, HttpWrapper, Storage) {
     $scope.userComment = '';
     $scope.userHasComment = false;
-
+    $scope.idUser = Storage.getItem("idUser");
+    $scope.idPlayground = Storage.getItem("idPlayground");
     $scope.playgroundComments = playgroundCommentsResponse.data;
 
     if ($rootScope.IS_AUTH) {
-        RestService.get('comments/' + $rootScope.userData.id + '/' + id_playground).then(function (response) {
-            $scope.userHasComment = !response['message'] || true;
+        HttpWrapper("GET", "comments:idUser:idPlayground").then(function (response) {
+            $scope.userHasComment = !response.hasOwnProperty("message") || false;
         });
     }
 
@@ -39,8 +38,8 @@ function PlaygroundTabsCommentsController($rootScope, $scope, playgroundComments
         $scope.userComment = actualComment;
     };
 
-    $scope.removeMyComment = function (pos, idCommment) {
-        RestService.remove('comments/' + idCommment).then(function () {
+    $scope.removeMyComment = function (pos, idComment) {
+        HttpWrapper("DELETE", `comments/${idComment}`).then(function () {
             $scope.playgroundComments.splice(pos, 1);
             $scope.userHasComment = false;
         });
@@ -48,28 +47,19 @@ function PlaygroundTabsCommentsController($rootScope, $scope, playgroundComments
 
     $scope.saveUserComment = function (value) {
         var commentClean = String(value).replace(/<[^>]+>/gm, '');
-
-        RestService.post('comments', {
-            id_user: $rootScope.userData.id,
-            id_playground: id_playground,
-            comment: commentClean
-        }).then(function (response) {
+        var requestData = {id_user: $scope.idUser, id_playground: $scope.idPlayground, comment: commentClean};
+        HttpWrapper("POST", "comments", requestData).then(function () {
             $scope.toggleCommentPanel();
-            $scope.loadComments();
             $scope.userHasComment = true;
         });
     };
 
     $scope.updateUserComment = function (userCommentUpdated) {
         var commentClean = String(userCommentUpdated).replace(/<[^>]+>/gm, '');
-
-        RestService.put('comments', {
-            id_comment: $scope.idComment,
-            comment: commentClean
-        }).then(function () {
+        var requestData = {id_comment: $scope.idComment, comment: commentClean};
+        HttpWrapper("PUT", "comments", requestData).then(function () {
             $scope.playgroundComments[$scope.commentPosition].comment = commentClean;
             $scope.toggleCommentPanel();
         });
     };
-
 }

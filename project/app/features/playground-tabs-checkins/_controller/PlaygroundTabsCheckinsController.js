@@ -7,35 +7,29 @@
 "use strict";
 
 angular.module("playground-tabs-checkins.controller", []).controller("PlaygroundTabsCheckinsController", PlaygroundTabsCheckinsController);
-PlaygroundTabsCheckinsController.$inject = ["$scope", "$state", "RestService"];
+PlaygroundTabsCheckinsController.$inject = ["$scope", "playgroundCheckinsResponse", "Navigation", "Storage", "HttpWrapper"];
 
 
-function PlaygroundTabsCheckinsController($scope, $state, RestService) {
-
-    var id_playground = $state.params.id;
-
-    RestService.get('checkins/' + id_playground).then(function (response) {
-        $scope.checkinsGroupByDate = response.data;
-    });
+function PlaygroundTabsCheckinsController($scope, playgroundCheckinsResponse, Navigation, Storage, HttpWrapper) {
+    $scope.checkinsGroupByDate = playgroundCheckinsResponse.data;
+    $scope.idPlayground = Storage.getItem("idPlayground");
 
     $scope.checkinToolbarStatus = function ($event, posParent, posChildren) {
         $event.preventDefault();
         $scope.checkinsGroupByDate[posParent][posChildren].toolbarStatus = ~$scope.checkinsGroupByDate[posParent][posChildren].toolbarStatus;
     };
 
-    $scope.removeCheckin = function ($event, posParent, posChildren, idCheckin) {
-        $event.preventDefault();
-        RestService.remove('checkins/' + idCheckin).then(function (response) {
+    $scope.removeCheckin = function (posParent, posChildren, idCheckin) {
+        HttpWrapper("DELETE", `checkins/${idCheckin}`).then(function () {
             $scope.checkinsGroupByDate[posParent].splice(posChildren, 1);
         });
     };
 
     $scope.goToCheckin = function () {
-        $state.go('checkin', {id: id_playground});
+        Navigation("checkin", "idPlayground", $scope.idPlayground);
     };
 
     $scope.editMyCheckin = function (idCheckin) {
-        $state.go('checkin', {id: id_playground, idCheckin: idCheckin});
+        Navigation("checkin", ["idPlayground", "idCheckin"], [$scope.idPlayground, idCheckin]);
     };
-
 }

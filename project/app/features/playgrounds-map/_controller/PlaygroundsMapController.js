@@ -7,10 +7,10 @@
 "use strict";
 
 angular.module("playgrounds-map.controller", []).controller("PlaygroundsMapController", PlaygroundsMapController);
-PlaygroundsMapController.$inject = ["$rootScope", "playgroundsResponse", "$scope", "Navigation", "$state"];
+PlaygroundsMapController.$inject = ["$rootScope", "playgroundsResponse", "$scope", "Navigation"];
 
 
-function PlaygroundsMapController($rootScope, playgroundsResponse, $scope, Navigation, $state) {
+function PlaygroundsMapController($rootScope, playgroundsResponse, $scope, Navigation) {
 
     $scope.playgrounds = playgroundsResponse.data;
 
@@ -22,8 +22,8 @@ function PlaygroundsMapController($rootScope, playgroundsResponse, $scope, Navig
         }
     });
 
-    $scope.handleNavigationMap = function () {
-        Navigation("playground.details", "idPlayground", $scope.playgroundId);
+    $scope.handleNavigationMap = function (page) {
+        Navigation(page, "idPlayground", $scope.playgroundId);
     };
 
 }

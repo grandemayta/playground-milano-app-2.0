@@ -1,4 +1,4 @@
-<div define-area type-area="withHeaderTabButton" id="NamespaceCheckins" class="withHeaderTabButton scrollable-area">
+<div id="NamespaceCheckins">
 
     <div ng-if="checkinGroupByDate.length > 0" ng-repeat="checkinGroupByDate in checkinsGroupByDate"
          class="card-group-by-content">
@@ -28,7 +28,7 @@
                 <div ng-show="userData.id === checkin.id_user.id && checkin.toolbarStatus"
                      class="card-three-col-toolbar">
                     <div ng-click="editMyCheckin(checkin.id)" class="card-three-col-toolbar-label">Modifica</div>
-                    <div ng-click="removeCheckin($event, $parent.$index, $index, checkin.id)"
+                    <div ng-click="removeCheckin($parent.$index, $index, checkin.id)"
                          class="card-three-col-toolbar-label no-margin-bottom">Elimina
                     </div>
                 </div>

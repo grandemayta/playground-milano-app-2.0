@@ -356,10 +356,10 @@ back-button {
 }
 
 .btn-fixed-bottom {
-  position: relative;
+  position: absolute;
   z-index: 50;
-  clear: left;
-  float: left;
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 44px;
   line-height: 44px;
@@ -849,6 +849,5 @@ button:disabled {
   .ipt-search {
     height: 60px !important;
   }
-
 
 }

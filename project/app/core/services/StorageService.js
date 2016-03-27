@@ -24,8 +24,10 @@ function StorageService($cookies) {
     };
 
     factory.getItem = function (key) {
+        var _key = key;
         key = `_${key}`;
         var checkValue = $cookies.getObject(key);
+        if (_key !== "idUser" && _key !== "idPlayground" && _key !== "sessionData") this.deleteItem(_key);
         return checkValue || '';
     };
 
