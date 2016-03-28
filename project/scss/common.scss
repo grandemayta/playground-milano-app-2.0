@@ -285,6 +285,12 @@ back-button {
   color: #fff;
 }
 
+.scrollable {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+}
+
 .menu-tabs ul li a.active {
   border-bottom: 4px solid #ffee58;
 }
@@ -356,10 +362,8 @@ back-button {
 }
 
 .btn-fixed-bottom {
-  position: absolute;
-  z-index: 50;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  display: block;
   width: 100%;
   height: 44px;
   line-height: 44px;

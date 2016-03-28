@@ -1,4 +1,4 @@
-<div class="scrollable-area" style="height: {{DEVICE.withHeaderButton}}px;">
+<div scrollable-content>
 
     <div style="background-image: url('{{playground.image}}');" class="card-checkin-playground-image">
         <div ng-bind="playground.name" class="card-checkin-playground-name"></div>
@@ -8,17 +8,10 @@
         <div class="spacer-20"></div>
         <div class="ttl-alternative-title">Seleziona la data:</div>
         <div class="spacer-10"></div>
-        <input type="text"
-               ng-model="dateFrom"
-               show-button-bar="false"
-               is-open="opened"
-               min-date="minDate"
-               datepicker-options="{showWeeks:false, startingDay: 1}"
-               datepicker-popup="{{dateFormat}}"
-               ng-required="true"
-               ng-readonly="true"
-               class="ipt-datepicker"/>
-
+        <input type="text" ng-model="dateFrom"
+               show-button-bar="false" is-open="opened"
+               min-date="minDate" datepicker-options="{showWeeks:false, startingDay: 1}"
+               datepicker-popup="{{dateFormat}}" ng-required="true" ng-readonly="true" class="ipt-datepicker"/>
         <div ng-click="openDatepicker()" class="datepicker-over-open icon-calendar"></div>
 
         <div class="spacer-20"></div>

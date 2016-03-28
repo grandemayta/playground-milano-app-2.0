@@ -7,23 +7,24 @@
 "use strict";
 
 angular.module("favourites.controller", []).controller("FavouritesController", FavouritesController);
-FavouritesController.$inject = ["$scope", "favouritesResponse", "$state", "RestService"];
+FavouritesController.$inject = ["$scope", "favouritesResponse", "HttpWrapper", "Navigation", "Storage"];
 
 
-function FavouritesController($scope, favouritesResponse, $state, RestService) {
+function FavouritesController($scope, favouritesResponse, HttpWrapper, Navigation, Storage) {
 
     $scope.favourites = favouritesResponse.data;
+    $scope.idUser = Storage.getItem("idUser");
 
     $scope.goToPlayground = function (idPlayground) {
-        $state.go('playground', {id: idPlayground});
+        Navigation("playground.details", "idPlayground", idPlayground);
     };
 
-    $scope.goToCheckin = function (id) {
-        $state.go('checkin', {id: id});
+    $scope.goToCheckin = function (idPlayground) {
+        Navigation("checkin", "idPlayground", idPlayground);
     };
 
-    $scope.removePlayground = function (idUser, idPlayground, position) {
-        RestService.remove('favourites/' + idUser + '/' + idPlayground).then(function (response) {
+    $scope.removePlayground = function (idPlayground, position) {
+        HttpWrapper("DELETE", `favourites/${$scope.idUser}/${idPlayground}`).then(function (response) {
             if (response.message) $scope.favourites.splice(position, 1);
         });
     };

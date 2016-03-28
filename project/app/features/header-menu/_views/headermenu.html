@@ -7,7 +7,7 @@
 
     <i ng-click="handleMenuStatus()" class="header-icon-menu icon-navicon"></i>
     <article>
-        <main ui-view scrollable-area></main>
+        <main ui-view scrollable-page></main>
         <spinner ng-if="toggleSpinner"></spinner>
         <overlay ng-if="toggleMenu || toggleSpinner || toggleModal"></overlay>
     </article>

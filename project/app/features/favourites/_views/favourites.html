@@ -5,7 +5,7 @@
         <div style="background-image: url('{{favourite.image}}');"
              ng-class="{'no-background-image':!favourite.image}"
              class="box-playground-image">
-            <i ng-click="removePlayground(userData.id, favourite.id, $index)"
+            <i ng-click="removePlayground(favourite.id, $index)"
                class="box-playground-icons icon-trash-bin-1"></i>
             <i style="display: none;" class="box-playground-icons icon-car"></i>
             <i ng-click="goToCheckin(favourite.id)" class="box-playground-icons icon-check-mark-3"></i>

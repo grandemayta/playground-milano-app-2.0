@@ -6,15 +6,14 @@
 
 "use strict";
 
-angular.module("directives.scrollable-area", []).directive("scrollableArea", ScrollableAreaDirective);
-ScrollableAreaDirective.$inject = [];
+angular.module("directives.scrollable-page", []).directive("scrollablePage", ScrollablePageDirective);
+ScrollablePageDirective.$inject = [];
 
 
-function ScrollableAreaDirective() {
+function ScrollablePageDirective() {
     return {
         restrict: "A",
         link: function (scope, element) {
-
             element.ready(function () {
                 var scrollableArea = 0,
                     scrollableTabsArea = 0,
@@ -23,7 +22,6 @@ function ScrollableAreaDirective() {
                 var tabHeader = document.querySelector("#tabs-navigation") ? document.querySelector("#tabs-navigation").clientHeight : '';
 
                 if (header) scrollableArea = `height:${height - header}px;`;
-
                 if (tabHeader) {
                     scrollableTabsArea = `height:${height - (header + tabHeader)}px;`;
                     scrollableArea += "overflow:hidden;";
@@ -31,7 +29,6 @@ function ScrollableAreaDirective() {
                         item.setAttribute("style", scrollableTabsArea);
                     });
                 }
-
                 document.querySelector("main").setAttribute("style", scrollableArea);
             });
         }
