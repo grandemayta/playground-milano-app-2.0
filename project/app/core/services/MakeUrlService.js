@@ -19,8 +19,18 @@ function MakeUrlService(Storage) {
             urlSplit = _.tail(urlSplit);
 
             _.each(urlSplit, function (key) {
-                var getKeyValue = Storage.getItem(key);
-                if (getKeyValue) builUrl += `/${getKeyValue}`;
+                var checkSlash = key.split('/');
+                var getKeyValue = "";
+                if (checkSlash.length > 1) {
+                    key = checkSlash[0];
+                    getKeyValue = Storage.getItem(key);
+                    if (getKeyValue) builUrl += `/${getKeyValue}/${checkSlash[1]}`;
+                }
+                else {
+                    getKeyValue = Storage.getItem(key);
+                    if (getKeyValue) builUrl += `/${getKeyValue}`;
+                }
+
             });
 
         }
