@@ -25,6 +25,7 @@ import "./friends-tabs-list";
 import "./friends-tabs-search";
 import "./favourites";
 import "./checkin";
+import "./faq"
 
 
 angular.module("features", [
@@ -46,5 +47,6 @@ angular.module("features", [
     "friends-tabs-list",
     "friends-tabs-search",
     "favourites",
-    "checkin"
+    "checkin",
+    "faq"
 ]);
