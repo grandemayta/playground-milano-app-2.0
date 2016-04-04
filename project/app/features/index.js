@@ -25,7 +25,10 @@ import "./friends-tabs-list";
 import "./friends-tabs-search";
 import "./favourites";
 import "./checkin";
-import "./faq"
+import "./faq";
+import "./privacy"
+import "./credits";
+import "./about-us";
 
 
 angular.module("features", [
@@ -48,5 +51,8 @@ angular.module("features", [
     "friends-tabs-search",
     "favourites",
     "checkin",
-    "faq"
+    "faq",
+    "privacy",
+    "credits",
+    "aboutus"
 ]);

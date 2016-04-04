@@ -6,7 +6,19 @@
 
 "use strict";
 
-angular.module("faq-services", []).config(FaqServicesConfig);
+import "./states/outsidemilan";
+import "./states/mandatory";
+import "./states/whatservices";
+import "./states/review";
+import "./states/reporting";
+
+angular.module("faq-services", [
+    "faq-outsidemilan",
+    "faq-mandatory",
+    "faq-whatservices",
+    "faq-review",
+    "faq-reporting"
+]).config(FaqServicesConfig);
 FaqServicesConfig.$inject = ["$stateProvider"];
 
 
